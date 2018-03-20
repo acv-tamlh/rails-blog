@@ -3,4 +3,6 @@ class Article < ApplicationRecord
 
   has_many :texts
   has_many :images
+
+  scope :published, -> {where(['posttime <= ?', Time.now])}
 end

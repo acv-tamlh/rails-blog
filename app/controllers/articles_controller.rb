@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
   before_action :getArticle, only: [:show, :edit, :update, :destroy]
   before_action :article_params, only: [:create, :update]
   def index
-    @articles = Article.all
+    @articles = Article.all.published
   end
 
   def show
