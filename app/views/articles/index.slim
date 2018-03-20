@@ -10,7 +10,9 @@ table
     tr
       td = article.id
       td = link_to article.title, article_path(article)
-      td = article.try(:posttime)
+      td
+        = article.try(:posttime)
+        = link_to 'add text', new_text_path
       td
         = link_to 'edit', edit_article_path(article)
         | &nbsp&nbsp&nbsp&nbsp
