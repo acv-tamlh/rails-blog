@@ -9,7 +9,7 @@ table
   - @articles.each do |article|
     tr
       td = article.id
-      td = article.title
+      td = link_to article.title, article_path(article)
       td = article.try(:posttime)
       td
         = link_to 'edit', edit_article_path(article)
