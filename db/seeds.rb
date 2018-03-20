@@ -9,29 +9,29 @@
 # Text.destroy_all
 # Image.destroy_all
 
-images = [
-  {
-       headline: 'image4',
-          order: '1',
-        url_img: 'https://images.pexels.com/photos/36764/marguerite-daisy-beautiful-beauty.jpg?w=1260&h=750&auto=compress&cs=tinysrgb',
-        article_id: '1'
-  },
-  {
-       headline: 'image5',
-          order: '2',
-        url_img: 'https://images.pexels.com/photos/66276/flower-macro-nature-bud-66276.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb',
-        article_id: '2'
-  },
-  {
-       headline: 'image6',
-          order: '3',
-        url_img: 'https://images.pexels.com/photos/66276/flower-macro-nature-bud-66276.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb',
-        article_id: '4'
-  }
-]
-images.each do |image|
-  Image.create(image)
-end
+# images = [
+#   {
+#        headline: 'image4',
+#           order: '1',
+#         url_img: 'https://images.pexels.com/photos/36764/marguerite-daisy-beautiful-beauty.jpg?w=1260&h=750&auto=compress&cs=tinysrgb',
+#         article_id: '1'
+#   },
+#   {
+#        headline: 'image5',
+#           order: '2',
+#         url_img: 'https://images.pexels.com/photos/66276/flower-macro-nature-bud-66276.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb',
+#         article_id: '2'
+#   },
+#   {
+#        headline: 'image6',
+#           order: '3',
+#         url_img: 'https://images.pexels.com/photos/66276/flower-macro-nature-bud-66276.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb',
+#         article_id: '4'
+#   }
+# ]
+# images.each do |image|
+#   Image.create(image)
+# end
 # #
 # texts = [
 #     {
