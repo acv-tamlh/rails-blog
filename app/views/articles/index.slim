@@ -15,3 +15,4 @@ table
         = link_to 'edit', edit_article_path(article)
         | &nbsp&nbsp&nbsp&nbsp
         = link_to 'delete', article_path(article), method: :delete, data: {confirm: 'Are you sure?'}
+= link_to 'Create', new_article_path

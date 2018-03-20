@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :getArticle, only: [:show, :edit, :update]
+  before_action :getArticle, only: [:show, :edit, :update, :destroy]
   before_action :article_params, only: [:create, :update]
   def index
     @articles = Article.all
@@ -13,6 +13,7 @@ class ArticlesController < ApplicationController
   end
 
   def create
+    @article = Article.new(article_params)
     return redirect_to articles_url, success: 'Create sucessfully' if @article.save
     flash[:error] = 'Error in form'
     render :new
@@ -26,6 +27,12 @@ class ArticlesController < ApplicationController
     return redirect_to articles_url, success: 'Update sucessfully' if @article.update(article_params)
     flash[:error] = 'Update fail'
     render :edit
+  end
+
+  def destroy
+    return redirect_to articles_url, success: 'Delete sucessfully' if @article.destroy
+    flash[:error] = 'Delete fail'
+    redirect_to articles_url
   end
 
 
