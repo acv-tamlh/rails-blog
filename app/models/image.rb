@@ -1,4 +1,4 @@
 class Image < ApplicationRecord
 
-  has_many :texts
+  has_and_belongs_to_many :texts
 end

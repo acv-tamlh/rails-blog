@@ -14,19 +14,19 @@ images = [
        headline: 'image1',
           order: '1',
         url_img: 'https://images.pexels.com/photos/36764/marguerite-daisy-beautiful-beauty.jpg?w=1260&h=750&auto=compress&cs=tinysrgb',
-    articles_id: '1'
+    texts_id: '1'
   },
   {
        headline: 'image2',
           order: '2',
         url_img: 'https://images.pexels.com/photos/66276/flower-macro-nature-bud-66276.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb',
-    articles_id: '1'
+    texts_id: '1'
   },
   {
        headline: 'image3',
           order: '1',
         url_img: 'https://images.pexels.com/photos/66276/flower-macro-nature-bud-66276.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb',
-    articles_id: '2'
+    texts_id: '2'
   }
 ]
 images.each do |image|

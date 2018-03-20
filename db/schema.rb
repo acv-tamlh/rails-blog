@@ -17,8 +17,6 @@ ActiveRecord::Schema.define(version: 20180320042740) do
     t.datetime "posttime"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "images_id"
-    t.index ["images_id"], name: "index_articles_on_images_id"
   end
 
   create_table "images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -27,8 +25,8 @@ ActiveRecord::Schema.define(version: 20180320042740) do
     t.string "url_img"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "articles_id"
-    t.index ["articles_id"], name: "index_images_on_articles_id"
+    t.bigint "texts_id"
+    t.index ["texts_id"], name: "index_images_on_texts_id"
   end
 
   create_table "texts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -38,7 +36,9 @@ ActiveRecord::Schema.define(version: 20180320042740) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "article_id"
+    t.bigint "images_id"
     t.index ["article_id"], name: "index_texts_on_article_id"
+    t.index ["images_id"], name: "index_texts_on_images_id"
   end
 
 end
