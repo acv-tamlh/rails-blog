@@ -4,8 +4,6 @@ class CreateImages < ActiveRecord::Migration[5.1]
       t.string :headline
       t.integer :order
       t.string :url_img
-
-      t.timestamps
     end
   end
 end

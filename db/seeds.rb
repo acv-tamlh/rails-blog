@@ -7,31 +7,32 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 # Article.destroy_all
 # Text.destroy_all
-Image.destroy_all
+# Image.destroy_all
 
 images = [
   {
-       headline: 'image1',
+       headline: 'image4',
           order: '1',
         url_img: 'https://images.pexels.com/photos/36764/marguerite-daisy-beautiful-beauty.jpg?w=1260&h=750&auto=compress&cs=tinysrgb',
-    texts_id: '1'
+        article_id: '1'
   },
   {
-       headline: 'image2',
+       headline: 'image5',
           order: '2',
         url_img: 'https://images.pexels.com/photos/66276/flower-macro-nature-bud-66276.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb',
-    texts_id: '1'
+        article_id: '2'
   },
   {
-       headline: 'image3',
-          order: '1',
+       headline: 'image6',
+          order: '3',
         url_img: 'https://images.pexels.com/photos/66276/flower-macro-nature-bud-66276.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb',
-    texts_id: '2'
+        article_id: '4'
   }
 ]
 images.each do |image|
   Image.create(image)
 end
+# #
 # texts = [
 #     {
 #           headline: "hello article 1",
@@ -70,17 +71,16 @@ end
 #         article_id: 2
 #     },
 # ]
-#
-# texts.each do |text|
-#   Text.create(text)
-# end
-#
 # articles = [
 #   {title: 'From today\'s featured article'},
 #   {title: 'Did you know...'},
 #   {title: 'From today\'s featured list'},
 #   {title: 'Today\'s featured picture'},
 # ]
+#
+# texts.each do |text|
+#   Text.create(text)
+# end
 #
 # articles.each do |ar|
 #   Article.create(ar)
