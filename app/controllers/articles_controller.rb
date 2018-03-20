@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :getArticleParams, only: [:show, :edit]
+  before_action :getArticle, only: [:show, :edit, :update]
   before_action :article_params, only: [:create, :update]
   def index
     @articles = Article.all
@@ -23,13 +23,18 @@ class ArticlesController < ApplicationController
   end
 
   def update
-    return redirect_to articles_url, success: 'Update sucessfully' if @article.update(getArticleParams)
+    return redirect_to articles_url, success: 'Update sucessfully' if @article.update(article_params)
     flash[:error] = 'Update fail'
+    render :edit
   end
 
 
   private
-    def getArticleParams
+    def getArticle
       @article = Article.find(params[:id])
+    end
+
+    def article_params
+      article_params = params.require(:article).permit(:title, :posttime)
     end
 end
