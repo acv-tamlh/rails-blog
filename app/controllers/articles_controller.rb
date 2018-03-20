@@ -2,10 +2,11 @@ class ArticlesController < ApplicationController
   before_action :getArticle, only: [:show, :edit, :update, :destroy]
   before_action :article_params, only: [:create, :update]
   def index
-    @articles = Article.all.published
+    @articles = Article.joins(:texts, :images).distinct.order(:posttime).published
   end
 
   def show
+    # @joined = Text.join(:image)
   end
 
   def new
