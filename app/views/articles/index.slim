@@ -1,1 +1,17 @@
 h1 #Index
+h2 Article Table
+table
+  tr
+    th #
+    th Title
+    th Posttime
+    th Handle
+  - @articles.each do |article|
+    tr
+      td = article.id
+      td = article.title
+      td = article.try(:posttime)
+      td
+        = link_to 'edit', edit_article_path(article)
+        | &nbsp&nbsp&nbsp&nbsp
+        = link_to 'delete', article_path(article), method: :delete, data: {confirm: 'Are you sure?'}
