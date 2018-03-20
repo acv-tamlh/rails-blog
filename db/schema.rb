@@ -10,13 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180320030548) do
+ActiveRecord::Schema.define(version: 20180320042740) do
 
   create_table "articles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "title"
     t.datetime "posttime"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "images_id"
+    t.index ["images_id"], name: "index_articles_on_images_id"
+  end
+
+  create_table "images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "headline"
+    t.integer "order"
+    t.string "url_img"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "articles_id"
+    t.index ["articles_id"], name: "index_images_on_articles_id"
   end
 
   create_table "texts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
