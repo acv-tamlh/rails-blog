@@ -21,11 +21,11 @@ class TextsController < ApplicationController
   end
 
   def edit
-    render :edit
+
   end
 
   def update
-    return redirect_to texts_url, success: 'Update sucessfully' if @text.update(text_params)
+    return redirect_to articles_url, success: 'Update sucessfully' if @text.update(text_params)
     flash[:error] = 'Update fail'
     render :edit
   end

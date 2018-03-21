@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
   before_action :getArticle, only: [:show, :edit, :update, :destroy]
   before_action :article_params, only: [:create, :update]
   def index
-    @articles = Article.joins(:texts, :images).distinct.order(:posttime).published
+    @articles = Article.published
   end
 
   def show
@@ -43,6 +43,6 @@ class ArticlesController < ApplicationController
     end
 
     def article_params
-      article_params = params.require(:article).permit(:title, :posttime)
+      article_params = params.require(:article).permit(:title, :posttime, :image_id)
     end
 end

@@ -2,5 +2,6 @@ h1 Article Details
 h2 = @article.title
 p = @article.try(:posttime)
 | ##### Texts ######
+hr
 = render partial: 'texts/text', collection: @article.texts
-= render partial: 'images/image', collection: @article.images
+/ = render partial: 'images/image', collection: @article.images

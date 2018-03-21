@@ -1,0 +1,11 @@
+= semantic_form_for @image do |f|
+  .field
+    = f.label :headline
+    = f.text_field :headline
+  .field
+    = f.label :order
+    = f.number_field :order
+  .field
+    = f.label :url_image
+    = f.file_field :url_image
+  .actions = f.submit
