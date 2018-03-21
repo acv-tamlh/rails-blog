@@ -50,11 +50,11 @@ RSpec.describe ArticlesController, type: :controller do
       it 'create fail' do
         expect{ do_request('') }.to change(Article, :count).by(0)
       end
-      it 'permit params' do
-        # binding.pry
-        expect_any_instance_of(Article).to receive(:create).with(title: 'title').with_indifferent_access)
-        post :create, params: { article: FactoryBot.attributes_for(:article, title: 'asdas') }
-      end
+      # it 'permit params' do
+      #   # binding.pry
+      #   expect_any_instance_of(Article).to receive(:create).with(title: 'title').with_indifferent_access)
+      #   post :create, params: { article: FactoryBot.attributes_for(:article, title: 'asdas') }
+      # end
     end
   end
 end
