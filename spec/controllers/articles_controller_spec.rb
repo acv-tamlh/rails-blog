@@ -34,4 +34,22 @@ RSpec.describe ArticlesController, type: :controller do
       expect(assigns(:article).id).to eq article.id
     end
   end
+  describe '#new article' do
+    # let(:article) { create(:article) }
+    def do_request(p = '123')
+      post :create, params: { article: FactoryBot.attributes_for(:article, title: p) }
+    end
+    it 'render template' do
+      get :new
+      expect(response).to render_template :new
+    end
+    context 'create article' do
+      it 'create sucessfully' do
+        expect{ do_request }.to change(Article, :count).by(1)
+      end
+      it 'create fail' do
+        expect{ do_request('') }.to change(Article, :count).by(0)
+      end
+    end
+  end
 end
