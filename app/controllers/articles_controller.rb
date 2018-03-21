@@ -14,6 +14,8 @@ class ArticlesController < ApplicationController
   end
 
   def create
+    # binding.pry
+
     @article = Article.new(article_params)
     return redirect_to articles_url, success: 'Create sucessfully' if @article.save
     flash[:error] = 'Error in form'
