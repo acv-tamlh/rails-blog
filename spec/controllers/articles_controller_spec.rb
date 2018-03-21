@@ -23,4 +23,15 @@ RSpec.describe ArticlesController, type: :controller do
       expect(assigns(:article).id).to eq article.id
     end
   end
+  describe 'GET #edit' do
+    let(:article) { create(:article) }
+    it 'render template' do
+      get :edit, params: {id: article.id}
+      expect(response).to render_template :edit
+    end
+    it 'get assigns article id' do
+      get :edit, params: {id: article.id}
+      expect(assigns(:article).id).to eq article.id
+    end
+  end
 end
