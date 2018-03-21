@@ -1,2 +1,4 @@
-img {src =@image.url_image}
-=> link_to 'Edit', edit_image_path(@image)
+img {src =image.url_image}
+|
+= image.order
+=> link_to 'Edit', edit_image_path(image)

@@ -5,4 +5,5 @@ class Article < ApplicationRecord
   has_many :images
 
   scope :published, -> {where(['posttime <= ?', Time.now])}
+  # scrop :sort
 end

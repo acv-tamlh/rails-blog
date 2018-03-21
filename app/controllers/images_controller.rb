@@ -27,6 +27,7 @@ class ImagesController < ApplicationController
     @image = Image.new(image_params)
     return redirect_to @image, notice: 'Image was successfully created.' if @image.save
     flash[:notice] = @image.errors
+    render :new
     end
 
   # PATCH/PUT /images/1
@@ -64,6 +65,6 @@ class ImagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def image_params
-      params.require(:image).permit(:headline, :order, :url_image)
+      params.require(:image).permit(:headline, :order, :url_image, :article_id)
     end
 end
