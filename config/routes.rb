@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'articles#index'
   resources :articles do
     resource :texts
+    resource :images
     member do
       get 'like'
     end

@@ -4,6 +4,7 @@ table
   tr
     th #
     th Title
+    th Reference
     th Posttime
     th Handle
   - @articles.each do |article|
@@ -11,8 +12,9 @@ table
       td = article.id
       td = link_to article.title, article_path(article)
       td
-        = article.try(:posttime)
         = link_to 'add text', new_article_texts_path(article)
+        = link_to 'add image', new_article_images_path(article)
+      td = article.try(:posttime)
       td
         = link_to 'edit', edit_article_path(article)
         | &nbsp&nbsp&nbsp&nbsp

@@ -2,5 +2,6 @@
   = f.input :headline
   = f.input :order
   = f.input :sentence
-  = f.input :article
+  = f.input :article,:as => 'hidden', :input_html => {name: 'text[article_id]',value: params[:article_id]}
+
   = f.submit :create

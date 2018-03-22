@@ -15,8 +15,8 @@ class TextsController < ApplicationController
 
   def create
     @text = Text.new(text_params)
-    return redirect_to articles_url, success: 'Create sucessfully' if @text.save
-    flash[:error] = 'Error in form'
+    return redirect_to article_url(@text.article.id), notice: 'Create sucessfully' if @text.save
+    flash[:notice] = 'Error in form'
     render :new
   end
 
@@ -25,15 +25,15 @@ class TextsController < ApplicationController
   end
 
   def update
-    return redirect_to articles_url, success: 'Update sucessfully' if @text.update(text_params)
-    flash[:error] = 'Update fail'
+    return redirect_to article_url(@text.article.id), notice: 'Update sucessfully' if @text.update(text_params)
+    flash[:notice] = 'Update fail'
     render :edit
   end
 
   def destroy
-    return redirect_to texts_url, success: 'Delete sucessfully' if @text.destroy
-    flash[:error] = 'Delete fail'
-    redirect_to texts_url
+    return redirect_to article_url(@text.article.id), notice: 'Delete sucessfully' if @text.destroy
+    flash[:notice] = 'Delete fail'
+    redirect_to article_url(@text.article.id)
   end
 
   def like

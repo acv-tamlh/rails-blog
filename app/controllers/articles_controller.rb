@@ -18,8 +18,8 @@ class ArticlesController < ApplicationController
     # binding.pry
 
     @article = Article.new(article_params)
-    return redirect_to articles_url, success: 'Create sucessfully' if @article.save
-    flash[:error] = 'Error in form'
+    return redirect_to articles_url, notice: 'Create sucessfully' if @article.save
+    flash[:notice] = 'Error in form'
     render :new
   end
 
@@ -28,14 +28,14 @@ class ArticlesController < ApplicationController
   end
 
   def update
-    return redirect_to articles_url, success: 'Update sucessfully' if @article.update(article_params)
-    flash[:error] = 'Update fail'
+    return redirect_to articles_url, notice: 'Update sucessfully' if @article.update(article_params)
+    flash[:notice] = 'Update fail'
     render :edit
   end
 
   def destroy
-    return redirect_to articles_url, success: 'Delete sucessfully' if @article.destroy
-    flash[:error] = 'Delete fail'
+    return redirect_to articles_url, notice: 'Delete sucessfully' if @article.destroy
+    flash[:notice] = 'Delete fail'
     redirect_to articles_url
   end
 

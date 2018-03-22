@@ -25,7 +25,7 @@ class ImagesController < ApplicationController
   # POST /images.json
   def create
     @image = Image.new(image_params)
-    return redirect_to @image, notice: 'Image was successfully created.' if @image.save
+    return redirect_to article_path(@image.article_id), notice: 'Image was successfully created.' if @image.save
     flash[:notice] = @image.errors
     render :new
     end
@@ -52,8 +52,8 @@ class ImagesController < ApplicationController
   # DELETE /images/1
   # DELETE /images/1.json
   def destroy
-    return redirect_to images_url, notice: 'Image was sucessfully delete' if @image.destroy
-    redirect_to images_url, notice: 'Image was delete fail'
+    return redirect_to article_url(@image.article_id), notice: 'Image was sucessfully delete' if @image.destroy
+    redirect_to article_url(@image.article_id), notice: 'Image was delete fail'
 
   end
 
