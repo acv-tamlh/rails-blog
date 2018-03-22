@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :getArticle, only: [:show, :edit, :update, :destroy]
+  before_action :getArticle, only: [:show, :edit, :update, :destroy, :like]
   before_action :article_params, only: [:create, :update]
   def index
     @articles = Article.all
@@ -39,6 +39,10 @@ class ArticlesController < ApplicationController
     redirect_to articles_url
   end
 
+  def like
+    like_component(@article, @article, 'like sucessfully','like error' )
+  end
+
 
   private
     def getArticle
@@ -46,6 +50,6 @@ class ArticlesController < ApplicationController
     end
 
     def article_params
-      article_params = params.require(:article).permit(:title, :posttime)
+      article_params = params.require(:article).permit(:title, :posttime, :like)
     end
 end

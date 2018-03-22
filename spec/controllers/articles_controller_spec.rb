@@ -57,4 +57,15 @@ RSpec.describe ArticlesController, type: :controller do
       # end
     end
   end
+  describe '#DELETE article' do
+    def do_request
+      delete :destroy, params: {article: FactoryBot.attributes_for(:article)}
+    end
+    it 'render template' do
+      expect(response).to render_template :index
+    end
+    it 'delete sucessfully' do
+      expect{ do_request }.to change(Article, :count).by(-1)
+    end
+  end
 end
