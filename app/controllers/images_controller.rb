@@ -59,7 +59,7 @@ class ImagesController < ApplicationController
   end
 
   def like
-    byebug
+    # byebug
     like_component(@image, @image.article)
   end
 

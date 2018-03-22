@@ -2,7 +2,7 @@ h1 Article Details
 div
   h2 = @article.title
   = @article.like
-= link_to 'Like', like_article_path
+  = link_to 'Like', like_article_path
 p = @article.try(:posttime)
 hr
 = render partial: 'texts/text', collection: @article.texts

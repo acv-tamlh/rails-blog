@@ -2,11 +2,10 @@
 div
   h3
     span = text.headline
-    | #order:
+    | #
     span = text.order
-    | #like: &nbsp
     span = text.like
-  = link_to 'Like', like_text_path(text, @article)
+    = link_to 'Like', like_text_path(text, @article)
 = link_to 'edit', edit_text_path(text)
 | &nbsp
 = link_to 'delete', text_path(text), method: :delete, data: {confirm: 'Do you want to delete this text?'}
