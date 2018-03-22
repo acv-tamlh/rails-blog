@@ -40,7 +40,7 @@ class ArticlesController < ApplicationController
   end
 
   def like
-    like_component(@article, @article, 'like sucessfully','like error' )
+    like_component(@article, @article)
   end
 
 

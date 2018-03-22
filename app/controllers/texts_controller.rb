@@ -1,5 +1,5 @@
 class TextsController < ApplicationController
-  before_action :getText, only: [:show, :edit, :update, :destroy]
+  before_action :getText, only: [:show, :edit, :update, :destroy, :like]
   before_action :text_params, only: [:create, :update]
   def index
     @texts = Text.all
@@ -36,6 +36,9 @@ class TextsController < ApplicationController
     redirect_to texts_url
   end
 
+  def like
+    like_component(@text, @text.article)
+  end
 
   private
     def getText

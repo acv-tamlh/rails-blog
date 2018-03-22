@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :articles do
     resource :texts
     member do
-      get 'like', to: :likeArticle, controller: 'articles'
+      get 'like'
     end
   end
   resources :texts do
