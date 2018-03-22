@@ -7,7 +7,7 @@ class ArticlesController < ApplicationController
 
   def show
     # @joined = Text.join(:image)
-    # @sortdata = (@article.texts + @article.images).sort_by &:no
+    @sortdata = (@article.texts + @article.images).sort_by &:order
   end
 
   def new
