@@ -10,5 +10,6 @@
     = f.file_field :url_image
   .field
     = f.label :Article
-    = f.input :article, as: 'hidden', input_html: {name: 'image[article_id]', value: params[:article_id]}
+    = f.input :article
+    / , as: 'hidden', input_html: {name: 'image[article_id]', value: params[:article_id]}
   .actions = f.submit

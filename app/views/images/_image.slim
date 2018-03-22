@@ -1,5 +1,9 @@
+div
+  = image.headline
+  br
+  = image.order
 img {src =image.url_image}
-| # 
-= image.order
-=> link_to 'Edit', edit_image_path(image)
-= link_to
+
+div
+  = link_to 'Edit', edit_image_path(image, @article)
+  = link_to 'like', like_image_path(image, @article)

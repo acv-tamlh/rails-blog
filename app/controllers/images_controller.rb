@@ -1,5 +1,5 @@
 class ImagesController < ApplicationController
-  before_action :set_image, only: [:show, :edit, :update, :destroy]
+  before_action :set_image, only: [:show, :edit, :update, :destroy, :like]
 
   # GET /images
   # GET /images.json
@@ -33,9 +33,11 @@ class ImagesController < ApplicationController
   # PATCH/PUT /images/1
   # PATCH/PUT /images/1.json
   def update
-    @image = Image.new(image_params)
-    return redirect_to @image, notice: 'Image was successfully updated.' if @image.update(image_params)
+    # byebug
+    # @image = Image.new(image_params)
+    return redirect_to article_path(@image.article.id), notice: 'Image was successfully updated.' if @image.update(image_params)
     flash[:notice] = @image.errors
+    redirect_to article_path(@image.article.id)
     end
     #
     # respond_to do |format|
@@ -54,7 +56,11 @@ class ImagesController < ApplicationController
   def destroy
     return redirect_to article_url(@image.article_id), notice: 'Image was sucessfully delete' if @image.destroy
     redirect_to article_url(@image.article_id), notice: 'Image was delete fail'
+  end
 
+  def like
+    byebug
+    like_component(@image, @image.article)
   end
 
   private
