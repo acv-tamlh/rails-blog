@@ -6,7 +6,7 @@ class TextsController < ApplicationController
   end
 
   def show
-    @text.order(:order)
+    # @text.order(:order)
   end
 
   def new
@@ -46,6 +46,6 @@ class TextsController < ApplicationController
     end
 
     def text_params
-      text_params = params.require(:text).permit(:headline, :order, :sentence, :article_id)
+      @text_params = params.require(:text).permit(:headline, :order, :sentence, :article_id)
     end
 end

@@ -9,7 +9,7 @@ end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.5'
 # Use mysql2 as the database for Active Record
-gem 'mysql2'
+gem 'mysql2', '~> 0.3.18'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
@@ -43,7 +43,7 @@ gem "awesome_print"
 
 gem 'carrierwave', '~> 0.10.0'
 gem 'mini_magick', '~> 4.3'
-
+gem 'rails_admin', '~> 1.3'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

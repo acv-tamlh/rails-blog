@@ -7,6 +7,5 @@ p = @article.try(:posttime)
 hr
 / = render partial: 'texts/text', collection: @article.texts
 / = render partial: 'images/image', collection: @article.images
-
-= @sortdata.each do |a|
-  = a.try(:image)
+- @sortdata.each do |array|
+  = render 'text_image', array: array

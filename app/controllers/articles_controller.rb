@@ -7,6 +7,7 @@ class ArticlesController < ApplicationController
 
   def show
     # @joined = Text.join(:image)
+    # byebug
     @sortdata = (@article.texts + @article.images).sort_by &:order
   end
 
