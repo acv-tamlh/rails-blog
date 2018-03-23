@@ -12,6 +12,9 @@ html
         =notice
       p.alert.text-danger
         =alert
-      =link_to 'Signout user', destroy_user_session_path, method: :delete
-      =link_to 'Signout admin', destroy_admin_session_path, method: :delete
+      button.btn.btn-warning
+        - if user_signed_in?
+          =link_to 'Signout user', destroy_user_session_path, method: :delete
+        - if admin_signed_in?
+          =link_to 'Signout admin', destroy_admin_session_path, method: :delete
       = yield
