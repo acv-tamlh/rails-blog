@@ -3,8 +3,13 @@ div
   h2 = @article.title
   = @article.like
   = link_to 'Like', like_article_path
+  = link_to 'edit', edit_article_path(@article)
 p = @article.try(:posttime)
+div
+  = link_to 'Add text', new_article_texts_path(@article)
+  = link_to 'Add image', new_article_images_path(@article)
 hr
+
 / = render partial: 'texts/text', collection: @article.texts
 / = render partial: 'images/image', collection: @article.images
 - @sortdata.each do |array|

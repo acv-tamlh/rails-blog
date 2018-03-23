@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
   before_action :getArticle, only: [:show, :edit, :update, :destroy, :like]
   before_action :article_params, only: [:create, :update]
   def index
-    @articles = Article.all
+    @articles = Article.all.published
   end
 
   def show
@@ -29,7 +29,7 @@ class ArticlesController < ApplicationController
   end
 
   def update
-    return redirect_to articles_url, notice: 'Update sucessfully' if @article.update(article_params)
+    return redirect_to article_url(@article.id), notice: 'Update sucessfully' if @article.update(article_params)
     flash[:notice] = 'Update fail'
     render :edit
   end
