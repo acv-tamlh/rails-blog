@@ -12,9 +12,7 @@ html
         =notice
       p.alert.text-danger
         =alert
-      button.btn.btn-warning
+      button.btn.btn-warning.pull-right
         - if user_signed_in?
           =link_to 'Signout user', destroy_user_session_path, method: :delete
-        - if admin_signed_in?
-          =link_to 'Signout admin', destroy_admin_session_path, method: :delete
       = yield

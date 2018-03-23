@@ -9,6 +9,8 @@ class ArticlesController < ApplicationController
     # @joined = Text.join(:image)
     # byebug
     @sortdata = (@article.texts + @article.images).sort_by &:order
+    authorize! :read, @sortdata
+
   end
 
   def new
