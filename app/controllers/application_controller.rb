@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  before_action :authenticate_user!
+  
   protect_from_forgery with: :exception
 
   def like_component(like_component, url, msg_sucess = 'Sucessfully', msg_fail = 'Fail')

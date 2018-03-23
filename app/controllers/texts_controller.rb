@@ -1,4 +1,6 @@
 class TextsController < ApplicationController
+  before_action :authenticate_admin!
+
   before_action :getText, only: [:show, :edit, :update, :destroy, :like]
   before_action :text_params, only: [:create, :update]
   def index
