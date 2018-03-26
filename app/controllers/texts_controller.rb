@@ -16,7 +16,7 @@ class TextsController < ApplicationController
   def create
     @text = Text.new(text_params)
     return redirect_to article_url(@text.article.id), notice: 'Create sucessfully' if @text.save
-    flash[:notice] = 'Create text error'
+    flash[:alert] = 'Create text error'
     render :new
   end
 
@@ -26,13 +26,13 @@ class TextsController < ApplicationController
 
   def update
     return redirect_to article_url(@text.article.id), notice: 'Update sucessfully' if @text.update(text_params)
-    flash[:notice] = 'Update fail'
+    flash[:alert] = 'Update fail'
     render :edit
   end
 
   def destroy
     return redirect_to article_url(@text.article.id), notice: 'Delete sucessfully' if @text.destroy
-    flash[:notice] = 'Delete fail'
+    flash[:alert] = 'Delete fail'
     redirect_to article_url(@text.article.id)
   end
 
