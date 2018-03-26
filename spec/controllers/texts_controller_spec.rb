@@ -24,13 +24,19 @@ RSpec.describe TextsController, type: :controller do
     # end
   end
   describe 'update text' do
-    let(:text) { create(:text) }
-    def do_request
-      get :edit, params: {article_id: text.article_id, format: text.id}
+    let!(:text) { create(:text) }
+    def params(headline = 'good headline')
+      text_params = {headline: headline}
     end
-    it 'edit sucessfully' do
-      # byebug
-      expect { do_request }.to redirect_to article_path(text.article_id)
+    it 'good params' do
+      patch :update, params: {article_id: text.article_id, id: text.id, text: params}
+      text.reload
+      expect(assigns(:text).headline).to eq text.headline
+    end
+    it 'bad params' do
+      patch :update, params: {article_id: text.article.id, id: text.id, text: params('')}
+      text.reload
+      expect(assigns(:text).headline).not_to eq text.headline
     end
   end
   describe 'delete text' do
