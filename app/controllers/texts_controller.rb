@@ -1,7 +1,6 @@
 class TextsController < ApplicationController
   before_action :getText, only: [:show, :edit, :update, :destroy, :like]
   before_action :text_params, only: [:create, :update]
-  before_action :check_role
   def index
     @texts = Text.all
   end
@@ -48,9 +47,5 @@ class TextsController < ApplicationController
 
     def text_params
       @text_params = params.require(:text).permit(:headline, :order, :sentence, :article_id)
-    end
-    def check_role
-      return 'admin' if current_user.role == 'admin'
-      return
     end
 end

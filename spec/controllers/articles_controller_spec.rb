@@ -9,7 +9,7 @@ RSpec.describe ArticlesController, type: :controller do
     it "show all article" do
       articles = create_list(:article, 5)
       get :index
-      expect(assigns(:articles)).to eq articles
+      expect(assigns(:articles).size).to eq articles.size
     end
   end
   describe 'GET #show' do
@@ -50,22 +50,16 @@ RSpec.describe ArticlesController, type: :controller do
       it 'create fail' do
         expect{ do_request('') }.to change(Article, :count).by(0)
       end
-      # it 'permit params' do
-      #   # binding.pry
-      #   expect_any_instance_of(Article).to receive(:create).with(title: 'title').with_indifferent_access)
-      #   post :create, params: { article: FactoryBot.attributes_for(:article, title: 'asdas') }
-      # end
     end
   end
   describe '#DELETE article' do
+    let!(:article) { create(:article) }
     def do_request
-      delete :destroy, params: {article: FactoryBot.attributes_for(:article)}
-    end
-    it 'render template' do
-      expect(response).to render_template :index
+      delete :destroy, params: { id: article.id }
     end
     it 'delete sucessfully' do
       expect{ do_request }.to change(Article, :count).by(-1)
+      expect(response).to redirect_to articles_path
     end
   end
 end
