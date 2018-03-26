@@ -52,4 +52,13 @@ RSpec.describe ImagesController, type: :controller do
     it 'bad params' do
     end
   end
+  describe 'Like' do
+    it 'good params' do
+      get :like, params: {article_id: image.article.id, id: image.id}
+      expect(assigns(:image).like).to eq image.like + 1
+    end
+    it 'bad params' do
+      
+    end
+  end
 end

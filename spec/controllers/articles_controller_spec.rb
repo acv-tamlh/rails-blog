@@ -67,4 +67,12 @@ RSpec.describe ArticlesController, type: :controller do
       expect(response).to redirect_to articles_path
     end
   end
+  describe 'Like' do
+    let!(:article) { create(:article) }
+    it 'good params' do
+      get :like, params: { id: article.id }
+      expect(assigns(:article).like).to eq article.like + 1
+      expect(response).to redirect_to article_path(article.id)
+    end
+  end
 end

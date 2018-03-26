@@ -55,5 +55,13 @@ RSpec.describe TextsController, type: :controller do
       #   expect{ do_request('params not found') }.to change(Text, :count).by(0)
       # end
     end
+    describe 'Like' do
+      it 'good params' do
+        get :like, params: {article_id: text.article.id, id: text.id}
+        expect(assigns(:text).like).to eq text.like + 1
+      end
+      it 'bad params' do
 
+      end
+    end
 end
