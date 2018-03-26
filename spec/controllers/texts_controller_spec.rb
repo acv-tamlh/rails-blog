@@ -19,10 +19,13 @@ RSpec.describe TextsController, type: :controller do
     end
   end
   describe 'read text' do
-    # let!(:text) { create(:text) }
-    # it 'show text' do
-    #   get :show, params: {article_id: text.last.article_id, format: text.id}
-    #   expect(response).to render_template
+    it 'sucessfully' do
+      get :show, params: {article_id: text.article_id, id: text.id}
+      expect(assigns(:text)).to eq text
+    end
+    # it 'fail' do
+    #   get :show, params: {article_id: text.article_id, id: 'not_found_text_id'}
+    #   expect(respone).to rails_exception(ActiveRecord::RecordNotFound)
     # end
   end
   describe 'update text' do
