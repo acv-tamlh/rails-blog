@@ -37,7 +37,7 @@ RSpec.describe ArticlesController, type: :controller do
     end
     it 'update with bad params' do
       patch :update, params: {id: article.id, article: params('')}
-      expect(response).to render_template :edit
+      expect(response).not_to eq article.title
     end
   end
   describe '#new article' do
