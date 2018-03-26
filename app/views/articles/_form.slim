@@ -1,4 +1,9 @@
 = semantic_form_for @article do |f|
-  = f.input :title
-  = f.input :posttime
-  = f.submit :submit
+  .field
+    = f.label :title
+    = f.input :title
+  .field
+    = f.label :posttime
+    = f.input :posttime
+  .action
+    = f.submit :submit

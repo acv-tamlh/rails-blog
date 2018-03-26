@@ -23,7 +23,7 @@ class ArticlesController < ApplicationController
 
     @article = Article.new(article_params)
     return redirect_to articles_url, notice: 'Create sucessfully' if @article.save
-    flash[:notice] = 'Error in form'
+    flash[:alert] = 'Error in form'
     render :new
   end
 
@@ -33,13 +33,13 @@ class ArticlesController < ApplicationController
 
   def update
     return redirect_to article_url(@article.id), notice: 'Update sucessfully' if @article.update(article_params)
-    flash[:notice] = 'Update fail'
+    flash[:alert] = 'Update fail'
     render :edit
   end
 
   def destroy
     return redirect_to articles_url, notice: 'Delete sucessfully' if @article.destroy
-    flash[:notice] = 'Delete fail'
+    flash[:alert] = 'Delete fail'
     redirect_to articles_url
   end
 
