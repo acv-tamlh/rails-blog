@@ -1,7 +1,13 @@
 = semantic_form_for @text do |f|
-  = f.input :headline
-  = f.input :order
-  = f.input :sentence
-  = f.input :article,:as => 'hidden', :input_html => {name: 'text[article_id]',value: params[:article_id]}
+  .field
+    = f.label :headline
+    = f.input :headline
+  .field
+    = f.label :order
+    = f.input :order
+  .field
+    = f.label :sentence
+    = f.input :sentence
+    = f.input :article,:as => 'hidden', :input_html => {name: 'text[article_id]',value: params[:article_id]}
 
-  = f.submit :create
+  .actions = f.submit :create

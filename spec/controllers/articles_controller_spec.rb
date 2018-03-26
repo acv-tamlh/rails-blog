@@ -25,19 +25,22 @@ RSpec.describe ArticlesController, type: :controller do
       expect(assigns(:article).id).to eq article.id
     end
   end
-  describe 'GET #edit' do
-    let(:article) { create(:article) }
-    it 'render template' do
-      get :edit, params: {id: article.id}
-      expect(response).to render_template :edit
+  describe '#edit' do
+    let!(:article) { create(:article) }
+    def params(title = 'good title')
+      article_params = { title: title }
     end
-    it 'get assigns article id' do
-      get :edit, params: {id: article.id}
-      expect(assigns(:article).id).to eq article.id
+    it 'update with good params' do
+      patch :update, params: {id: article.id, article: params}
+      article.reload
+      expect(assigns(:article).title).to eq article.title
+    end
+    it 'update with bad params' do
+      patch :update, params: {id: article.id, article: params('')}
+      expect(response).to render_template :edit
     end
   end
   describe '#new article' do
-    # let(:article) { create(:article) }
     def do_request(p = '123')
       post :create, params: { article: FactoryBot.attributes_for(:article, title: p) }
     end

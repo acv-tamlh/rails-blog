@@ -16,7 +16,7 @@ class TextsController < ApplicationController
   def create
     @text = Text.new(text_params)
     return redirect_to article_url(@text.article.id), notice: 'Create sucessfully' if @text.save
-    flash[:notice] = 'Error in form'
+    flash[:notice] = 'Create text error'
     render :new
   end
 
