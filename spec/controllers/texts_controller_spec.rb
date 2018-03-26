@@ -1,16 +1,18 @@
 require 'rails_helper'
 
 RSpec.describe TextsController, type: :controller do
+  let!(:text) { create(:text) }
+
   describe 'create text' do
     def do_request (title = 'title', sentence = 'sentence')
         post :create, params: { text: FactoryBot.attributes_for(:text, title: title, sentence: sentence) }
     end
-    it 'create sucessfully' do
+    it 'good params' do
       get :new
       expect{ do_request }.to change(Text, :count).by(1)
       expect(response).to redirect_to article_path(Text.last.article_id)
     end
-    it 'create fail' do
+    it 'bad params' do
       get :new
       expect { do_request('') }
       expect(response).to render_template :new
@@ -24,7 +26,6 @@ RSpec.describe TextsController, type: :controller do
     # end
   end
   describe 'update text' do
-    let!(:text) { create(:text) }
     def params(headline = 'good headline')
       text_params = {headline: headline}
     end
@@ -40,7 +41,16 @@ RSpec.describe TextsController, type: :controller do
     end
   end
   describe 'delete text' do
-
-  end
+    def do_request(text_id = text.id)
+      delete :destroy, params: {id: text_id}
+    end
+      it 'sucessfully' do
+        expect{ do_request }.to change(Text, :count).by(-1)
+        expect(response).to redirect_to article_path(text.article.id)
+      end
+      # it 'fail' do
+      #   expect{ do_request('params not found') }.to change(Text, :count).by(0)
+      # end
+    end
 
 end

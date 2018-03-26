@@ -62,7 +62,7 @@ RSpec.describe ArticlesController, type: :controller do
     def do_request
       delete :destroy, params: { id: article.id }
     end
-    it 'delete sucessfully' do
+    it 'sucessfully' do
       expect{ do_request }.to change(Article, :count).by(-1)
       expect(response).to redirect_to articles_path
     end
