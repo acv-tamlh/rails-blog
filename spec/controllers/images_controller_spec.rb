@@ -40,12 +40,16 @@ RSpec.describe ImagesController, type: :controller do
       expect(assigns(:image).headline).not_to eq image.headline
     end
   end
-  # describe 'delete imgage' do
-  #   it 'sucessfully' do
-  #
-  #   end
-  #   it 'fail' do
-  #
-  #   end
-  # end
+  describe 'delete imgage' do
+    def delete_request
+        delete :destroy, params: { id: image.id }
+    end
+    it 'good params' do
+      expect{ delete_request }.to change(Image, :count).by(-1)
+      expect(response).to redirect_to article_path(image.article.id)
+    end
+
+    it 'bad params' do
+    end
+  end
 end
