@@ -2,22 +2,20 @@
   div.image
     h3
       span = array.headline
-      / |#order
-      / span.badge = array.order
-      / | #
     span.glyphicon.glyphicon-heart
     span.badge = array.like
     = link_to 'like', like_image_path(array)
     p
       img.img-thumbnail src= array.url_image
+    = link_to 'edit', edit_article_images_path(array.article, id: array)
+    | &nbsp
+    = link_to 'delete', image_path(array), method: :delete, data: {confirm: 'Do you want to delete this text?'}
+
 -else
   p
     div.text
       h3
         span = array.headline
-        / |#order
-        / span = array.order
-        / | #
       span.glyphicon.glyphicon-heart
       span.badge = array.like
       = link_to 'Like', like_text_path(array, @article)

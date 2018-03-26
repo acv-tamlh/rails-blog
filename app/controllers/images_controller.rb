@@ -36,7 +36,7 @@ class ImagesController < ApplicationController
     # byebug
     # @image = Image.new(image_params)
     return redirect_to article_path(@image.article.id), notice: 'Image was successfully updated.' if @image.update(image_params)
-    flash[:notice] = @image.errors
+    flash[:notice] = 'Update fail'
     redirect_to article_path(@image.article.id)
     end
     #

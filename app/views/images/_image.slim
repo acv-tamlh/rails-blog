@@ -6,7 +6,7 @@ div
   h3
     = image.like
     = link_to 'like', like_image_path(image, @article)
-img {src =image.url_image}
+  img {src =image.url_image}
 
 div
   = link_to 'Edit', edit_image_path(image, @article)
