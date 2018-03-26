@@ -6,10 +6,12 @@ RSpec.describe ArticlesController, type: :controller do
       get :index
       expect(response).to render_template :index
     end
-    it "show all article" do
-      articles = create_list(:article, 5)
+    let!(:articles2) { create_list(:article, 5, posttime: 69.day.from_now) }
+    let!(:articles3) { create_list(:article, 2) }
+    let!(:articles4) { create_list(:article, 2, posttime: Time.now - 1.day) }
+    it "show all article published" do
       get :index
-      expect(assigns(:articles).size).to eq articles.size
+      expect(assigns(:articles).size).to eq articles3.size + articles4.size
     end
   end
   describe 'GET #show' do

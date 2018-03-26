@@ -2,6 +2,7 @@ class ArticlesController < ApplicationController
   before_action :getArticle, only: [:show, :edit, :update, :destroy, :like]
   before_action :article_params, only: [:create, :update]
   def index
+    # byebug
     @articles = Article.all.published
   end
 
